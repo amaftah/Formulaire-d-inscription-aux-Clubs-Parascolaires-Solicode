@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Solicode Subscription Form</title>
+</head>
+<body>
+
+    <div class="main">
+        <div class="form-box">
+            <div class="form-title"></div>
+            <div class="form-content">
+                
+                <form>
+
+                    <div id="header">
+                        <h1>Formulaire d'inscription aux Clubs Parascolaires à Solicode</h1>
+                    </div>
+
+                    <div class="personal-info">
+
+                        <div class="input">
+                            <h2>Nom :</h2>
+                            <span id="NomOutput"></span><br>
+                            <input type="text" id="nom" placeholder="Nom"  onkeyup="NomChecker()">
+                        </div>
+
+                        <div class="input">
+                            <h2>Prénom :</h2>
+                            <span id="PrénomOutput"></span><br>
+                            <input type="text" id="prénom" placeholder="Prénom" max="30" onkeyup="PrénomChecker()">
+                        </div>
+
+                        <div class="input">
+                            <h2>Email :</h2>
+                            <span id="emailOutput"></span><br>
+                            <input type="text" id="Email" placeholder="Email" onkeyup="emailChecker()">
+                        </div>
+
+                        <div class="input">
+                            <h2>Télephone :</h2>
+                            <span id="teleOutput"></span><br>
+                            <input type="text" id="Télephone" placeholder="Phone" onkeyup="NumeroChecker()">
+                        </div>
+
+                    </div>
+
+                    <div class="club-info">
+                        
+                        <div class="gender">
+                            <h2>Genre :</h2>
+                            <label for="man">Man</label>
+                            <input type="radio" id="man" name="gender" onkeyup="manchecker()">
+                            <label for="femme">Female</i></label>
+                            <input type="radio" id="woman" name="gender" onkeyup="woman()&&">
+                        </div>
+
+                        <div class="groups">
+                            <h2>Groups :</h2>
+                            <div>
+                                <label for="101">Dw101</label>
+                                <input type="radio" id="101" name="groupe">
+                                <label for="102">Dw102</label>    
+                                <input type="radio" id="102" name="groupe">
+                                <label for="103">Dw103</label>
+                                <input type="radio" id="103" name="groupe">
+                                <label for="104">Dm101</label>
+                                <input type="radio" id="104" name="groupe">
+                                <label for="105">Dm102</label>
+                                <input type="radio" id="105" name="groupe">
+                            </div>
+                        </div>
+                    </div>
+                        <div class="clubs">
+                            <h2 >Clubs :</h2>
+                            <select name="Clubs" id="clubs" multiple max>
+                              <option value="eng">English</option>
+                              <option value="rob">Robotics</option>
+                              <option value="tht">Theater</option>
+                              <option value="des">Design</option>
+                              <option value="photo">Photography</option>
+                            </select>
+                        </div>
+                    
+                    <div>
+                        <button onClick="redirect()">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="white"></div>
+            <div class="blue"></div>
+        </div>
+    </div>
+    <script>
+ function NomChecker(){
+    const x = document.getElementById("nom").value;
+    if (x.match(/[0-9]/g)) {
+        document.getElementById("NomOutput").innerHTML = "*Le nom doit pas contenir des nombres";
+        document.getElementById("nom" ).style.border = "1px solid #DE0068";
+    }
+    else if(x.length <= 30 && x.length >= 3){
+        document.getElementById("nom").style.border = "1px solid #59CE8F";
+        document.getElementById("NomOutput").innerHTML = "";
+    } else {
+        document.getElementById("NomOutput").innerHTML = "*Votre nom doit comporter entre 3 et 30 caractères";
+        document.getElementById("nom" ).style.border = "1px solid #DE0068";
+    }
+
+}
+
+function PrénomChecker(){
+    const x = document.getElementById("prénom").value;
+    if (x.match(/[0-9]/g)) {
+        document.getElementById("PrénomOutput").innerHTML = "* Le nom doit pas contenir des nombres";
+        document.getElementById("prénom" ).style.border = "1px solid #DE0068";
+    }
+    else if(x.length < 30 && x.length > 3){
+        document.getElementById("prénom").style.border = "1px solid #59CE8F";
+        document.getElementById("PrénomOutput").innerHTML = "";
+    } else {
+        document.getElementById("PrénomOutput").innerHTML = "*Votre nom doit comporter entre 3 et 30 caractères";
+        document.getElementById("prénom").style.border = "1px solid #DE0068";
+    }
+}
+
+function emailChecker(){
+    const x = document.getElementById("Email").value;
+    if(x == nom.value+"."+prénom.value+"@ofppt.ma"){
+        document.getElementById("Email").style.border = "1px solid #59CE8F";
+        document.getElementById("emailOutput").innerHTML = "";
+    } else {
+        document.getElementById("emailOutput").innerHTML = "*L'email doit être dans cette formule : Nom.Prénom@ofppt.ma";
+        document.getElementById("Email").style.border = "1px solid #DE0068";
+    }
+}
+function NumeroChecker(){
+    const x = document.getElementById("Télephone").value;
+    let y = new RegExp('[0-9]','g');
+    if(y.test(x) == true && x.length == 10 && x[0] == 0 && ( x[1] == 5 || x[1] == 6 || x[1] == 7)){
+        
+        document.getElementById("Télephone").style.border = "1px solid #59CE8F";
+        document.getElementById("teleOutput").innerHTML = "";
+    } else {
+        document.getElementById("teleOutput").innerHTML = "* Veuillez entrer un numéro de téléphone valide";
+        document.getElementById("Télephone").style.border = "1px solid #DE0068";
+    }
+}
+
+    </script>
+</body>
+</html>
