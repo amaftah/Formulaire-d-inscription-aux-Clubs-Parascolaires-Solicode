@@ -53,30 +53,34 @@
                         <div class="gender">
                             <h2>Genre :</h2>
                             <label for="man">Man</label>
-                            <input type="radio" id="man" name="gender" onkeyup="manchecker()">
+                            <span id="Man"></span>
+                            <input type="radio" id="man" name="gender" onchange="manchecker()">
+                            <span id="Women"></span>
                             <label for="femme">Female</i></label>
-                            <input type="radio" id="woman" name="gender" onkeyup="woman()&&">
+                            <input type="radio" id="woman" name="gender" onchange="womanchecker()">
                         </div>
 
                         <div class="groups">
                             <h2>Groups :</h2>
                             <div>
+                                <span id="1"></span>
                                 <label for="101">Dw101</label>
-                                <input type="radio" id="101" name="groupe">
+                                <input type="radio" id="101" name="groupe" onchange="check101()">
                                 <label for="102">Dw102</label>    
-                                <input type="radio" id="102" name="groupe">
+                                <input type="radio" id="102" name="groupe" onchange="check102()">
                                 <label for="103">Dw103</label>
-                                <input type="radio" id="103" name="groupe">
+                                <input type="radio" id="103" name="groupe" onchange="check103()">
                                 <label for="104">Dm101</label>
-                                <input type="radio" id="104" name="groupe">
+                                <input type="radio" id="104" name="groupe" onchange="check104()">
                                 <label for="105">Dm102</label>
-                                <input type="radio" id="105" name="groupe">
+                                <input type="radio" id="105" name="groupe" onchange="check105()">
                             </div>
                         </div>
                     </div>
                         <div class="clubs">
                             <h2 >Clubs :</h2>
-                            <select name="Clubs" id="clubs" multiple max>
+                            <span id="club"></span>
+                            <select name="Clubs" id="clubs" multiple max onchange="Clubs()">
                               <option value="eng">English</option>
                               <option value="rob">Robotics</option>
                               <option value="tht">Theater</option>
@@ -150,7 +154,89 @@ function NumeroChecker(){
         document.getElementById("Télephone").style.border = "1px solid #DE0068";
     }
 }
+function manchecker(){
+    const x = document.getElementById("man").value;
+    if (x==null){
+        document.getElementById("man").style.border = "1px solid #DE0068";
+        document.getElementById("Man").innerHTML = "";
+    }else{
+        document.getElementById("Man").innerHTML = "*the box are checked";
+        document.getElementById("man").style.border =  "1px solid #59CE8F";
 
+    }
+    
+}
+function womanchecker(){
+    const x = document.getElementById("woman").value;
+    if (x==null){
+        document.getElementById("woman").style.border = "1px solid #DE0068";
+        document.getElementById("Woman").innerHTML = "";
+    }else{
+        document.getElementById("Woman").innerHTML = "the box are checked";
+        document.getElementById("woman").style.border = "1px solid #59CE8F";
+    }
+}
+function check101(){
+    const x = document.getElementById("101").value;
+    if(x==null){
+        document.getElementById("101").style.border = "1px solid #DE0068";
+        document.getElementById("1").innerHTML = "";
+    }else{
+        document.getElementById("1").innerHTML = "*te box are checked";
+        document.getElementById("101").style.border = "1px solid #59CE8F";
+    }
+}
+function check102(){
+    const x = document.getElementById("102").value;
+    if (x==null){
+        document.getElementById("101").style.border = "1px solid #DE0068";
+        document.getElementById("1").innerHTML = "";
+    }else{
+        document.getElementById("1").innerHTML = "the box are checked";
+        document.getElementById("101").style.border = "1px solid #59CE8F";
+    }
+}
+function check103(){
+    const x = document.getElementById("103").value;
+    if (x==null){
+        document.getElementById("103").style.border = "1px solid #DE0068";
+        document.getElementById("1").innerHTML = "";
+    }else{
+        document.getElementById("1").innerHTML = "the box are checked";
+        document.getElementById("103").style.border = "1px solid #59CE8F";
+    }
+}
+function check104(){
+    const x = document.getElementById("104").value;
+    if (x==null){
+        document.getElementById("104").style.border = "1px solid #DE0068";
+        document.getElementById("1").innerHTML = "";
+    }else{
+        document.getElementById("1").innerHTML = "*the box are checked";
+        document.getElementById("104").style.border = "1px solid #59CE8F";
+    }
+}
+function check105(){
+    const x = document.getElementById("105").value;
+    if (x==null){
+        document.getElementById("105").style.border = "1px solid #DE0068";
+        document.getElementById("1").innerHTML = "";
+    }else{
+        document.getElementById("1").innerHTML = "the box are checked";
+        document.getElementById("105").style.border = "1px solid #59CE8F";
+    }
+
+}
+function Clubs(){
+    const x = document.getElementById("clubs").Checked;
+    if (x==null){
+        document.getElementById("clubs").style.border = "1px solid #DE0068";
+        document.getElementById("club").innerHTML = "";
+    }else{
+        document.getElementById("club").innerHTML = "the Club are checked";
+        document.getElementsByName("clubs").style.border = "1px solid #59CE8F"
+    }
+}
     </script>
 </body>
 </html>
